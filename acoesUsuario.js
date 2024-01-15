@@ -63,9 +63,6 @@ function executarAcao(opcao, usuarioLogado) {
         case '2':
             modificarMeusDados(usuarioLogado);
             break;
-        case '3':
-            verListaPropriedades();
-            break;
 
         default:
             console.log('Opção inválida.');

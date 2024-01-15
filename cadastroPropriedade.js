@@ -18,9 +18,10 @@ function CadastroPropriedade() {
     IDpropriedade++;
 }
 
-function visualizarPropriedades() {
+function visualizarPropriedades(propriedade) {
     console.log('\nLISTA DE PROPRIEDADES');
-    propriedade.forEach(propriedades => {
+
+    propriedade.forEach(propriedade => {
         console.log('ID: ' + propriedade.id);
         console.log('Nome: ' + propriedade.nome);
         console.log('Endereço: ' + propriedade.endereco);
