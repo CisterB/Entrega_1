@@ -1,5 +1,3 @@
-// cadastro.js
-
 const readlineSync = require('readline-sync');
 var Usuario = require('./usuario');
 var usuarios = []; // Array local

@@ -1,5 +1,3 @@
-// usuario.js
-
 class Usuario {
     constructor(id, email, senha, nome, contato, historicoReservas = []) {
         this.id = id;

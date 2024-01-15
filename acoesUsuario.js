@@ -3,7 +3,7 @@
 const readlineSync = require('readline-sync');
 
 function verMeusDados(usuarioLogado) {
-    console.log('\n*** Meus Dados ***');
+    console.log('\nMEUS DADOS');
     console.log('ID: ' + usuarioLogado.id);
     console.log('Nome: ' + usuarioLogado.nome);
     console.log('Email: ' + usuarioLogado.email);
@@ -54,12 +54,6 @@ function modificarMeusDados(usuarioLogado) {
     }
 }
 
-function verListaPropriedades() {
-    console.log('\n*** Ver Lista de Propriedades ***');
-    // Lógica para listar propriedades em ordem alfabética
-}
-
-// Adicione outras funções para as demais opções
 
 function executarAcao(opcao, usuarioLogado) {
     switch (opcao) {
@@ -72,8 +66,7 @@ function executarAcao(opcao, usuarioLogado) {
         case '3':
             verListaPropriedades();
             break;
-        // Adicione casos para outras opções conforme necessário
-        // ...
+
         default:
             console.log('Opção inválida.');
             break;
