@@ -1,6 +1,6 @@
 const readlineSync = require('readline-sync');
 var Propriedade = require('./propriedade');
-var propriedade = []; // Array local
+var propriedade = []; 
 
 var IDpropriedade = 1;
 

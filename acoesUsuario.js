@@ -1,5 +1,3 @@
-// acoesFuncionario.js
-
 const readlineSync = require('readline-sync');
 
 function verMeusDados(usuarioLogado) {
