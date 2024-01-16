@@ -2,7 +2,6 @@ const readlineSync = require('readline-sync');
 
 function verMeusDados(usuarioLogado) {
     console.log('\nMEUS DADOS');
-    console.log('ID: ' + usuarioLogado.id);
     console.log('Nome: ' + usuarioLogado.nome);
     console.log('Email: ' + usuarioLogado.email);
     console.log('Senha: ' + usuarioLogado.senha);
@@ -46,9 +45,6 @@ function modificarMeusDados(usuarioLogado) {
             console.log('Voltando ao menu principal.');
             break;
 
-        default:
-            console.log('Opção inválida.');
-            break;
     }
 }
 
@@ -63,7 +59,6 @@ function executarAcao(opcao, usuarioLogado) {
             break;
 
         default:
-            console.log('Opção inválida.');
             break;
     }
 }

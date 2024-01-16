@@ -11,9 +11,11 @@ function Cadastro() {
     var nomeCadastro = readlineSync.question('Digite seu nome: ');
     var contatoCadastro = readlineSync.question('Digite seu contato: DDD XXXXX-XXXX \n');
     var historicoReservasCadastro = []
-    var usuarioCadastro = new Usuario(ID, emailCadastro, senhaCadastro, nomeCadastro, contatoCadastro, historicoReservasCadastro);
+    var propriedadesCadastro = [] 
+
+    var usuarioCadastro = new Usuario(ID, emailCadastro, senhaCadastro, nomeCadastro, contatoCadastro, historicoReservasCadastro, propriedadesCadastro);
     usuarios.push(usuarioCadastro);
     IDusuario++;
 }
 
-module.exports = { Cadastro, usuarios }; // Exporte a função e o array local
+module.exports = { Cadastro, usuarios }; 

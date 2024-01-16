@@ -2,7 +2,8 @@ var readlineSync = require('readline-sync');
 var {Cadastro, usuarios} = require('./cadastro'); 
 var executarAcao = require('./acoesUsuario');
 var Propriedade = require('./propriedade');
-var { CadastroPropriedade, visualizarPropriedades, propriedade } = require('./cadastroPropriedade')
+var { CadastroPropriedade, visualizarPropriedades,excluirPropriedade, propriedades } = require('./cadastroPropriedade');
+var { CadastroReserva, visualizarReservas, excluirReserva, reservas} = require('./cadastroReserva')
 
 while (pagInicial !== 'c') {
     var pagInicial = readlineSync.question('Escolha uma opção abaixo: \n a)Fazer Login \n b)Fazer Cadastro \n c)Sair do Programa \n');
@@ -10,6 +11,7 @@ while (pagInicial !== 'c') {
         var emailLogin = readlineSync.question('Digite seu email: ')
         var senhaLogin = readlineSync.question('Digite sua senha: ')
         
+ 
         let usuarioEncontrado = usuarios.find(usuario => usuario.email === emailLogin);
 
         if (usuarioEncontrado) {
@@ -21,9 +23,19 @@ while (pagInicial !== 'c') {
                     
                     var opcaoAcoes = readlineSync.question(' Escolha uma opção:\n1.Ver Meus Dados \n 2.Modificar Meus Dados \n 3.Ver Lista de Propriedades \n 4.Ver Lista de Reservas \n 5.Ver Lista de Anúncios \n 6.Reservar Propriedade \n 7.Cancelar Reserva \n 8.Adicionar Propriedade \n 9.Excluir Propriedade \n 10.Fazer Anúncio \n 11.Excluir Anúncio \n 12.Avaliar Estadia \n 13.Visualizar Avaliações \n Digite "c" para sair.\n ')
                     
-                    if (opcaoAcoes === '3' && propriedade.length > 0) {visualizarPropriedades(propriedade)};
+                    if (opcaoAcoes === '3' && propriedades.length > 0) {visualizarPropriedades()};
 
-                    if (opcaoAcoes === '8') {CadastroPropriedade()};
+                    if (opcaoAcoes === '4' && reservas.length > 0) {visualizarReservas()};1
+
+                    if (opcaoAcoes === '6') {CadastroReserva()};
+                    
+                    if (opcaoAcoes === '7') {excluirReserva()};
+
+                    if (opcaoAcoes === '8') {CadastroPropriedade()}
+
+                    if (opcaoAcoes === '9') {excluirPropriedade()}
+
+
 
                     if (opcaoAcoes === 'c') {break;}
                     
@@ -44,4 +56,4 @@ while (pagInicial !== 'c') {
     } 
 }
 
-console.log(usuarios);
+
