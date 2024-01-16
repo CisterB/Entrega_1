@@ -1,3 +1,5 @@
+// Este arquivo foi feito exibir as funcoes que mexem com informacoes do da propriedade 
+
 const readlineSync = require('readline-sync');
 var Propriedade = require('./propriedade');
 var Usuario = require('./usuario');
@@ -14,17 +16,18 @@ function CadastroPropriedade() {
     var capacidadeHospedesCadastro = readlineSync.question('Qual a capacidade de hospedes: ');
     var numeroQuartosCadastro = readlineSync.question('Possui quantos quartos:');
     var precoPorNoiteCadastro = readlineSync.question('Qual o preço por noite: ');
-    var disponibilidadeCadastro = readlineSync.question('Qual a disponibilidade: data inicial(DD/MM/AA) - data final(DD/MM/AA) \n');
+    var disponibilidadeCadastro = readlineSync.question('Qual a disponibilidade: data inicial(DD/MM/AA) - data final(DD/MM/AA) \n'); // observacao: faltou um codigo para a verificacao da data 
     
     var propriedadeCadastro = new Propriedade(ID, nomeCadastro, enderecoCadastro, capacidadeHospedesCadastro, numeroQuartosCadastro, precoPorNoiteCadastro, disponibilidadeCadastro);
-    propriedades.push(propriedadeCadastro);
+    propriedades.push(propriedadeCadastro); // adiciona o cadastro preenchido pelo usuario ao final da lista propriedades
 
-    IDpropriedade++;
+    IDpropriedade++; //sempre se adiciona 1 ao Id, assim o id permanece unico independente da movimentacao da lista
 }
 
 function visualizarPropriedades() {
     console.log('\nLISTA DE PROPRIEDADES');
 
+    //Exibe cada elemento especificado da lista propriedades
     propriedades.forEach(prop => {
         console.log('Nome: ' + prop.nome);
         console.log('Endereço: ' + prop.endereco);
@@ -37,7 +40,7 @@ function visualizarPropriedades() {
 }
 
 function excluirPropriedade() {
-    if (propriedades.length === 0) {
+    if (propriedades.length === 0) { // Confere se existe alguma propriedade registrada
         console.log('Não há propriedades para excluir.');
         return;
     }
@@ -52,9 +55,11 @@ function excluirPropriedade() {
     if (indiceExclusao >= 1 && indiceExclusao <= propriedades.length) {
         const propriedadeExcluida = propriedades[indiceExclusao - 1];
 
+        // Verifica se a propriedade está na lista de reservas
         const estaReservada = reservas.find(reserva => reserva.nomePropriedade === propriedadeExcluida.nome);
 
         if (!estaReservada) {
+            // Remove a propriedade apenas se não estiver reservad
             propriedades.splice(indiceExclusao - 1, 1);
             console.log('Propriedade excluída com sucesso:');
             console.log('Nome da propriedade: ' + propriedadeExcluida.nome);

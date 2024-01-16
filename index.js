@@ -20,12 +20,12 @@ while (pagInicial !== 'c') {
                 var usuarioLogado = usuarioEncontrado;
                 
                 while (true){
-                    
+                    // estrutura para escolher uma acao e so sair do login quando especificado
                     var opcaoAcoes = readlineSync.question(' Escolha uma opção:\n1.Ver Meus Dados \n 2.Modificar Meus Dados \n 3.Ver Lista de Propriedades \n 4.Ver Lista de Reservas \n 5.Ver Lista de Anúncios \n 6.Reservar Propriedade \n 7.Cancelar Reserva \n 8.Adicionar Propriedade \n 9.Excluir Propriedade \n 10.Fazer Anúncio \n 11.Excluir Anúncio \n 12.Avaliar Estadia \n 13.Visualizar Avaliações \n Digite "c" para sair.\n ')
                     
-                    if (opcaoAcoes === '3' && propriedades.length > 0) {visualizarPropriedades()};
+                    if (opcaoAcoes === '3' && propriedades.length > 0) {visualizarPropriedades()} else {console.log('Não possui propriedades reistradas \n')}; 
 
-                    if (opcaoAcoes === '4' && reservas.length > 0) {visualizarReservas()};1
+                    if (opcaoAcoes === '4' && reservas.length > 0) {visualizarReservas()} else {console.log('Não possui reservas feitas \n')};
 
                     if (opcaoAcoes === '6') {CadastroReserva()};
                     
@@ -35,9 +35,7 @@ while (pagInicial !== 'c') {
 
                     if (opcaoAcoes === '9') {excluirPropriedade()}
 
-
-
-                    if (opcaoAcoes === 'c') {break;}
+                    if (opcaoAcoes === 'c') {break;} // sai do login
                     
                     executarAcao(opcaoAcoes, usuarioLogado);
 

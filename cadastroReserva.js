@@ -1,3 +1,5 @@
+// Este arquivo foi feito exibir as funcoes que mexem com informacoes do reserva
+
 const readlineSync = require('readline-sync');
 var Reserva = require('./reservas');
 var { CadastroPropriedade, visualizarPropriedades,excluirPropriedade, propriedades } = require('./cadastroPropriedade');
@@ -11,7 +13,7 @@ function CadastroReserva() {
     var ID = IDreserva;
     var nomePropriedade = readlineSync.question('Digite o nome da propriedade: ');
     var nomeUsuario = readlineSync.question('Digite seu nome: ');
-    var dataCheckIn = readlineSync.question('Qual a data do checkIn:(DD-MM-AA) ');
+    var dataCheckIn = readlineSync.question('Qual a data do checkIn:(DD-MM-AA) '); // observacao: faltou um codigo para a verificacao da data 
     var dataCheckOut = readlineSync.question('Qual a data do checkOut:(DD-MM-AA) ');
     var numerodenoites = readlineSync.question('Quantas noites você vai ficar? ');
     
@@ -31,6 +33,7 @@ function CadastroReserva() {
 function visualizarReservas() {
     console.log('\n RESERVAS');
 
+    // Listando cada index da lista 
     reservas.forEach(res => {
         console.log('Nome da propriedade: ' + res.nomePropriedade);
         console.log('Reservado para: ' + res.nomeUsuario);
@@ -42,7 +45,8 @@ function visualizarReservas() {
 }
 
 function excluirReserva() {
-    if (reservas.length === 0) {
+    if (reservas.length === 0) { 
+        //confere se existe alguma reserva feita
         console.log('Não há reservas para excluir.');
         return;
     }
@@ -50,10 +54,12 @@ function excluirReserva() {
     console.log('Reservas disponíveis para exclusão:');
     reservas.forEach((reserva, index) => {
         console.log(`${index + 1}. ${reserva.nomePropriedade} - ${reserva.nomeUsuario}`);
-    });
+    }); // enumera cada reserva e seu nome junto com o nome do usuario
 
-    const indiceExclusao = readlineSync.questionInt('Digite o número da reserva que deseja excluir: ');
-
+    const indiceExclusao = readlineSync.questionInt('Digite o número da reserva que deseja excluir: '); 
+    // baseado na enumeração acima essa constante guarda a escolha do usuario  
+    
+    // o index da reserva é o numero que ele aparece - 1 e essa logica foi usada abaixo para excluir a reserva
     if (indiceExclusao >= 1 && indiceExclusao <= reservas.length) {
         const reservaExcluida = reservas.splice(indiceExclusao - 1, 1)[0];
         console.log('Reserva excluída com sucesso:');

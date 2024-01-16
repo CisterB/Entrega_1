@@ -1,3 +1,5 @@
+// Este arquivo foi feito exibir as funcoes que mexem com informacoes do usuarios 
+
 const readlineSync = require('readline-sync');
 
 function verMeusDados(usuarioLogado) {
@@ -7,11 +9,12 @@ function verMeusDados(usuarioLogado) {
     console.log('Senha: ' + usuarioLogado.senha);
     console.log('Contato: ' + usuarioLogado.contato);
     console.log('---------------------');
-}
+} // Funcao ecibe os dados
 
 function modificarMeusDados(usuarioLogado) {
     console.log('\n MODIFICAR DADOS ');
 
+    // exibicao das mudancas que podem ser feitas 
     console.log('dados atuais:');
     console.log('1. Nome: ' + usuarioLogado.nome);
     console.log('2. Email: ' + usuarioLogado.email);
@@ -19,8 +22,9 @@ function modificarMeusDados(usuarioLogado) {
     console.log('4. Contato: ' + usuarioLogado.contato);
 
     const opcao = readlineSync.question('Escolha o número do dado que deseja modificar (ou "0" para voltar): ');
+    // constante para guardar a escolha do usuario
 
-    switch (opcao) {
+    switch (opcao) { // estrtura feita para rodar ate achar a escolha do usuario
         case '1':
             usuarioLogado.nome = readlineSync.question('Digite o novo nome: ');
             console.log('Nome modificado com sucesso.');
@@ -61,6 +65,6 @@ function executarAcao(opcao, usuarioLogado) {
         default:
             break;
     }
-}
+} // poderia ter juntado essa parte no index junto com as outras funcionalidades mas deixei aqui por receio de quebrar o codigo
 
 module.exports = executarAcao;

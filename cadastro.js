@@ -15,7 +15,7 @@ function Cadastro() {
 
     var usuarioCadastro = new Usuario(ID, emailCadastro, senhaCadastro, nomeCadastro, contatoCadastro, historicoReservasCadastro, propriedadesCadastro);
     usuarios.push(usuarioCadastro);
-    IDusuario++;
+    IDusuario++; //sempre se adiciona 1 ao Id, assim o id permanece unico independente da movimentacao da lista
 }
 
 module.exports = { Cadastro, usuarios }; 
